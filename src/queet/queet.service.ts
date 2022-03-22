@@ -1,0 +1,38 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { CreateQueetDto } from './dto/create-queet.dto';
+import { UpdateQueetDto } from './dto/update-queet.dto';
+import { Queet } from './entities/queet.entity';
+
+@Injectable()
+export class QueetService {
+  constructor(
+    @InjectRepository(Queet)
+    private readonly queetRepository: Repository<Queet>,
+  ) {}
+  create(createQueetDto: CreateQueetDto) {
+    console.log(createQueetDto);
+    return this.queetRepository.save(createQueetDto);
+  }
+
+  findAll() {
+    return this.queetRepository.find();
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} queet`;
+  }
+
+  update(id: number, updateQueetDto: UpdateQueetDto) {
+    return `This action updates a #${id} queet`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} queet`;
+  }
+
+  fetchQueetsByProfile(id: number) {
+    return 'this is a test';
+  }
+}
