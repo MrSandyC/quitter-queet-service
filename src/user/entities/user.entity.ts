@@ -1,7 +1,9 @@
+import { Queet } from 'src/queet/entities/queet.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -14,10 +16,13 @@ export class User {
   nickname: string;
 
   @Column()
-  tag: string;
+  username: string;
 
   @Column()
   profileUri: string;
+
+  @OneToMany(() => Queet, (queet) => queet.user)
+  queets: Queet[];
 
   @CreateDateColumn()
   created_at: Date;

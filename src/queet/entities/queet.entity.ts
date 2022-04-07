@@ -1,7 +1,9 @@
+import { User } from 'src/user/entities/user.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -13,8 +15,8 @@ export class Queet {
   @Column()
   message: string;
 
-  @Column()
-  userId: number;
+  @ManyToOne(() => User, (user) => user.queets)
+  user: User;
 
   @CreateDateColumn()
   created_at: Date;

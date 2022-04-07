@@ -10,6 +10,7 @@ export class QueetController {
 
   @MessagePattern('queet:post-new')
   create(@Payload() createQueetDto: CreateQueetDto) {
+    console.log(createQueetDto);
     return this.queetService.create(createQueetDto);
   }
 

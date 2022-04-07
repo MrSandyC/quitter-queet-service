@@ -33,6 +33,11 @@ export class QueetService {
   }
 
   fetchQueetsByProfile(id: number) {
-    return 'this is a test';
+    return this.queetRepository.find({
+      relations: ['user'],
+      where: {
+        user: { id: id },
+      },
+    });
   }
 }

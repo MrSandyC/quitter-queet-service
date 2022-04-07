@@ -1,7 +1,7 @@
 export class CreateUserDto {
   nickname: string;
 
-  tag: string;
+  username: string;
 
   profileUri: string;
 }
