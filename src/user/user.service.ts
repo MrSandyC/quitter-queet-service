@@ -12,7 +12,7 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) {}
   create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+    return this.userRepository.save(createUserDto);
   }
 
   findAll() {
@@ -24,7 +24,7 @@ export class UserService {
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+    return this.userRepository.save(updateUserDto);
   }
 
   remove(id: number) {

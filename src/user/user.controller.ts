@@ -10,6 +10,7 @@ export class UserController {
 
   @MessagePattern('user:register')
   create(@Payload() createUserDto: CreateUserDto) {
+    console.log(createUserDto);
     return this.userService.create(createUserDto);
   }
 
@@ -25,6 +26,7 @@ export class UserController {
 
   @MessagePattern('user:update')
   update(@Payload() updateUserDto: UpdateUserDto) {
+    console.log(updateUserDto);
     return this.userService.update(updateUserDto.id, updateUserDto);
   }
 

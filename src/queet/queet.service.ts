@@ -17,7 +17,9 @@ export class QueetService {
   }
 
   findAll() {
-    return this.queetRepository.find();
+    return this.queetRepository.find({
+      relations: ['user'],
+    });
   }
 
   findOne(id: number) {
